@@ -2,10 +2,9 @@
 	<p style="font-size: 25pt; font-weight: bold; color: gray; padding: 15px;">W e d d i n g D r e s s</p>
 	<nav class="navigation">
 	  <ul class="mainmenu">
-	    <li><a href="">หมวก</a></li>
-	    <li><a href="">เครื่องประดับ</a></li>
-	    <li><a href="">ชุดแต่งงาน</a></li>
-	    <li><a href="">รองเท้า</a></li>
+	  	<li><a href="index.php">หน้าหลัก</a></li>
+	    <li><a href="men.php">ชุดแต่งงานชาย</a></li>
+	    <li><a href="women.php">ชุดแต่งงานหญิง</a></li>
 	  </ul>
 	</nav>
 </div>
@@ -16,7 +15,8 @@
 		/*background: #FEE5C4;*/
 		font-weight: bold;
 		position: fixed;
-		width: 20%;
+		width: 18%;
+		margin-left: 10%;
 		height: 100%;
 		float: left;
 	}
@@ -40,7 +40,9 @@
 
 	/* add hover behaviour */
 	.mainmenu a:hover {
-	    background-color: #FFF2E1;
+	    font-size: 25pt;
+	    transition: all 0.5s ease;
+	    color: pink;
 	}
 
 
