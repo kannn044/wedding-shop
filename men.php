@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,12 @@
 <!-- <script src="js/bootstrap.min.js"></script> -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"> 
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<?php include 'rel.php'; ?>
 <body>
 <?php include 'menu.php'; ?>
 <div style="width: 80%; height: 100%; margin-left: 25%; float: left;">
 	<div class="container">
+		<?php include 'top.php'; ?>
 		<div class="row justify-content-end">
 			<div class="col-10">
 				<?php include 'header.php'; ?>

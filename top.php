@@ -122,13 +122,12 @@ span.psw {
     }
 }
 </style>
-<!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
+<!-- <button" style="width:auto;">Login</button> -->
 
 <div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="dologin.php">
+  <form class="modal-content animate" action="#" method="post">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container">
@@ -137,17 +136,17 @@ span.psw {
 
       <label><b>รหัสผ่าน</b></label>
       <input type="password" placeholder="รหัสผ่าน" name="pass" required>
-      <center><button style="border: 1px solid gray;" type="submit">เข้าสู่ระบบ</button></center>
+      <center>
+        <input style="border: 1px solid gray;" type="submit" name="submit" value="เข้าสู่ระบบ" class="btn">
+      </center>
     </div>
-
   </form>
 </div>
 
 <div id="id02" class="modal">
-  
   <form class="modal-content animate" action="dologin.php">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container" style="font-size: 12pt;">
@@ -167,15 +166,13 @@ span.psw {
        
       <center><button style="border: 1px solid gray;" type="submit">สมัครสมาชิก</button></center>
     </div>
-
   </form>
 </div>
 
 <div id="id03" class="modal">
-  
   <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container">
@@ -190,31 +187,23 @@ span.psw {
         <input type="checkbox" checked="checked"> Remember me
       </label>
     </div>
-
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      <button type="button" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
-
-<script>
-// Get the modal
-var modal1 = document.getElementById('id01');
-var modal2 = document.getElementById('id02');
-var modal3 = document.getElementById('id03');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal.style.display = "none";
+<?php 
+  if(isset($_POST['submit'])) {
+    $result = $conn->query('select * from user');
+    while ($rs = mysqli_fetch_array($result)) {
+      if ($rs['username']==$_POST['user']&&$rs['password']==$_POST['pass']) {
+        $_SESSION['user'] = $rs['username'];
+        echo "<script>window.location.assign('index.php')</script>";
+      }else{
+        echo "<script>alert('ชื่อผู้ใช้งาน/รหัสผ่านไม่ถูกต้อง !')</script>";
+        echo "<script>window.location.assign('index.php')</script>";
+      }
     }
-     if (event.target == modal2) {
-        modal.style.display = "none";
-    }
-     if (event.target == modal3) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
+  }
+ ?>
